@@ -1,0 +1,36 @@
+@model LoginCustom.Models.Utilizador
+
+@{
+    ViewData["Title"] = "Registo";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>Registo</h1>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="Index">
+
+                @if(ViewData["Mensagem"] != null)
+                {
+                    <p class="alert alert-danger">@ViewData["Mensagem"]</p>
+                }                
+
+                <label class="form-label" asp-for="Username"></label>
+                <input class="form-control" type="text" asp-for="Username">
+                <span class="text-danger d-block" asp-validation-for="Username"></span>
+                <label class="form-label mt-2" asp-for="Password"></label>
+                <input class="form-control" name="password" type="password" asp-for="Password">
+                <span class="text-danger d-block" asp-validation-for="Password"></span>
+                <label class="form-label mt-2" for="confirmPassword">Confirmar Password</label>
+                <input class="form-control" id="confirmPassword" name="confirmPassword" type="password">
+
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-primary" type="submit">Registar</button>
+                    <a class="btn btn-secondary" asp-controller="Login" asp-action="Index">Retornar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
